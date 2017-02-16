@@ -1,4 +1,4 @@
-# georgeglarson/docker-bitmessage-gui 
+# georgeglarson/wickr
  [![Docker Pulls](https://img.shields.io/docker/pulls/j0rg3/wickr.svg)](https://hub.docker.com/r/j0rg3/wickr)
 
 
@@ -19,7 +19,7 @@ A description of how and why this project came to be can be found at [`j0rg3.com
 ```bash
 git clone https://github.com/georgeglarson/wickr 
 
-cd docker-wickr
+cd wickr
 
 ./install.sh
 ```
