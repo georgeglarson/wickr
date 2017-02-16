@@ -17,6 +17,6 @@ ssh-keygen -b 4096 -P "" -C $"$(whoami)@$(hostname)-$(date -I)" -f docker-wickr-
 ln -fs docker-wickr-keys.pub authorized_keys
 
 # link to Wickr script for system-wide access
-ln -fs ~/docker-wickr/wickr /usr/local/bin/wickr
+ln -fs ~/wickr/wickr /usr/local/bin/wickr
 
 
