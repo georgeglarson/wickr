@@ -1,0 +1,20 @@
+#!/bin/bash
+# filename: wickr     
+set -euxo pipefail 
+
+# open Docker container: 
+#    detatched, interactive, pseudo-tty (-dit)
+#  record container ID in $DID (Docker ID)
+DID=$(docker run -v ~/.config/wickr/keys/:/root/.ssh/ -dit j0rg3/wickr bash)
+
+# find IP address of new container, record in $DIP (Docker IP)
+DIP=$(docker inspect $DID | grep IPAddress | cut -d '"' -f 4)
+
+# pause for one second to allow container's SSHD to come online
+sleep 1
+
+# SSH into container and execute Wickr
+ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oIdentityFile=~/.config/wickr/keys/docker-wickr-keys -X $DIP wickr-me
+
+# close container if Wickr is closed; must logout first
+docker kill $DID
